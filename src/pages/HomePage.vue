@@ -2,13 +2,14 @@
     <div>
         <headerComponent/>
         <div class="container">
-            <button> boton test</button>
+           <data-table />
         </div>
     </div>
 </template>
 
 <script>
 import headerComponent from '../components/HeaderComponent'
+import dataTable from '../components/DataTable'
 export default {
     data(){
         return {
@@ -16,7 +17,8 @@ export default {
         }
     },
     components:{
-        headerComponent
+        headerComponent,
+        dataTable
     }
 }
 </script>
