@@ -6,8 +6,7 @@ export const state = {
 export const mutations = {
     sortById:(state) => state.sortBy = 'id',
     sortByDate:(state) => state.sortBy = 'date',
-    sortAsc:(state) => state.sortOrientation = 'asc',
-    sortDesc:(state) => state.sortOrientation = 'desc',
+    toggleSort:(state) => state.sortOrientation === 'asc' ? state.sortOrientation = 'desc' : state.sortOrientation = 'asc'
 }
 
 export const actions = {
@@ -16,7 +15,6 @@ export const actions = {
 
 export const getters = {
     paymentsOrdered: (state,getters,rootState) => {
-        console.log(rootState)
         return rootState.modPayments.payments.sort((a,b) => {
             switch(state.sortBy){
                 case 'id':

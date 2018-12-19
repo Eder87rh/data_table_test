@@ -1,11 +1,34 @@
 <template>
     <div >
+        
         <table class="data-table">
             <tr>
-                <th >ID</th>
+                <th>
+                    <i v-if="sortBy === 'id' && orientation === 'desc'" 
+                        class="material-icons md-light">
+                        arrow_downward
+                    </i>
+                    <i v-if="sortBy === 'id' && orientation === 'asc'" 
+                        class="material-icons md-light">
+                        arrow_upward
+                    </i>
+                    ID
+                </th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Date</th>
+                <th
+                    @click="sortByDate"
+                >
+                    <i v-if="sortBy === 'date' && orientation === 'desc'" 
+                        class="material-icons md-light">
+                        arrow_downward
+                    </i>
+                    <i v-if="sortBy === 'date' && orientation === 'asc'"
+                        class="material-icons md-light">
+                        arrow_upward
+                    </i> 
+                    Date
+                </th>
                 <th>Amount</th>
             </tr>
             <tr v-for="payment in $store.getters.paymentsOrdered" :key="payment.id">
@@ -21,6 +44,7 @@
 
 <script>
 import firebase from '../configFirebase.js'
+import { mapState } from 'vuex'
 
 export default {
     data(){
@@ -28,7 +52,16 @@ export default {
         }
     },
     methods:{
-
+        sortByDate(){
+            this.$store.commit('sortByDate')
+            this.$store.commit('toggleSort')
+        }
+    },
+    computed:{
+        ...mapState({
+            sortBy: ({modFilters}) => modFilters.sortBy,
+            orientation: ({modFilters}) => modFilters.sortOrientation
+        })
     }
 }
 </script>
