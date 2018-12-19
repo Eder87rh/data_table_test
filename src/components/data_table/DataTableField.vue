@@ -15,7 +15,9 @@
             class="data-table-field-container-vertical"
         >
             <textarea v-model="value" class="textarea"/>
-            <button class="button" >
+            <button class="button"
+                @click="saveNewValue"
+            >
                 SAVE
             </button>
         </div>
@@ -28,6 +30,10 @@ export default {
         data:{
             required:true,
             type:String
+        },
+        index:{
+            required:true,
+            type:Number,
         },
         editable:{
             default:false,
@@ -42,6 +48,15 @@ export default {
     },
     mounted(){
         this.value = this.data
+    },
+    methods:{
+        saveNewValue(){
+            this.$store.commit('updateDescription', {
+                index: this.index,
+                description: this.value
+            })
+            this.editing = false
+        }
     }
 }
 </script>

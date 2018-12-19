@@ -4,12 +4,12 @@
         <div class="container">
            <data-table>
                <data-table-header slot="header" :titles="titles"/>
-               <tr slot="body" v-for="data in $store.getters.paymentsOrdered" :key="data.id">
-                   <data-table-field :data="data.id"/>
-                   <data-table-field :data="data.name"/>
-                   <data-table-field :data="data.description" :editable="true"/>
-                   <data-table-field :data="data.date"/>
-                   <data-table-field :data="data.amount"/>
+               <tr slot="body" v-for="(data,index) in $store.getters.paymentsOrdered" :key="data.id">
+                   <data-table-field :data="data.id" :index="index"/>
+                   <data-table-field :data="data.name" :index="index" />
+                   <data-table-field :data="data.description" :index="index" :editable="true"/>
+                   <data-table-field :data="data.date" :index="index"/>
+                   <data-table-field :data="data.amount" :index="index"/>
                </tr>
            </data-table>
         </div>

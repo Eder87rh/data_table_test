@@ -704,7 +704,7 @@ export const state = {
 }
 
 export const mutations = {
-
+  updateDescription: ({payments}, {index, description}) => payments[index].description = description,
 }
 
 export const actions = {
