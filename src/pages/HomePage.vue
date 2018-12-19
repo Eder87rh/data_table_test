@@ -10,6 +10,14 @@
                    <data-table-field :data="data.description" :index="index" :editable="true"/>
                    <data-table-field :data="data.date" :index="index"/>
                    <data-table-field :data="data.amount" :index="index"/>
+                   <td>
+                       <!-- {{ data }} -->
+                       <data-table-action-button 
+                            title="save to firestore"
+                            :data="data"
+                            :action="() =>{}"
+                        />
+                   </td>
                </tr>
            </data-table>
         </div>
@@ -21,18 +29,20 @@ import headerComponent from '../components/HeaderComponent'
 import dataTable from '../components/data_table/DataTable'
 import dataTableHeader from '../components/data_table/DataTableHeader'
 import dataTableField from '../components/data_table/DataTableField'
+import dataTableActionButton from '../components/data_table/DataTableActionButton'
 
 export default {
     data(){
         return {
-            titles:['id', 'name', 'description', 'date', 'amount'],
+            titles:['id', 'name', 'description', 'date', 'amount', 'actions'],
         }
     },
     components:{
         headerComponent,
         dataTable,
         dataTableHeader,
-        dataTableField
+        dataTableField,
+        dataTableActionButton
     }
 }
 </script>
