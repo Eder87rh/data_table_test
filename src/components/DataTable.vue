@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import firebase from '../configFirebase.js'
+
 export default {
     data(){
         return{
