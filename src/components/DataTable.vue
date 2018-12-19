@@ -8,12 +8,12 @@
                 <th>Date</th>
                 <th>Amount</th>
             </tr>
-            <tr v-for="data in $store.state.data" :key="data.id">
-                <td>{{ data.id }}</td>
-                <td>{{ data.name }}</td>
-                <td>{{ data.description }}</td>
-                <td>{{ data.date }}</td>
-                <td>{{ data.amount }}</td>
+            <tr v-for="payment in $store.state.payments" :key="payment.id">
+                <td>{{ payment.id }}</td>
+                <td>{{ payment.name }}</td>
+                <td>{{ payment.description }}</td>
+                <td>{{ payment.date }}</td>
+                <td>{{ payment.amount }}</td>
             </tr>
         </table>
     </div>
