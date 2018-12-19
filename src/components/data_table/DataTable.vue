@@ -12,20 +12,10 @@ import firebase from '../../configFirebase.js'
 import { mapState } from 'vuex'
 
 export default {
-    props:{
-        allData:{
-            required:true,
-            type:Array
-        }
-    },
     data(){
         return{
         }
     },
-    methods:{
-       
-    },
-
 }
 </script>
 

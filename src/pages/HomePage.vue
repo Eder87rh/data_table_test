@@ -2,12 +2,12 @@
     <div>
         <headerComponent/>
         <div class="container">
-           <data-table :allData="$store.getters.paymentsOrdered">
+           <data-table>
                <data-table-header slot="header" :titles="titles"/>
                <tr slot="body" v-for="data in $store.getters.paymentsOrdered" :key="data.id">
                    <data-table-field :data="data.id"/>
                    <data-table-field :data="data.name"/>
-                   <data-table-field :data="data.description"/>
+                   <data-table-field :data="data.description" :editable="true"/>
                    <data-table-field :data="data.date"/>
                    <data-table-field :data="data.amount"/>
                </tr>
