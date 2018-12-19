@@ -16,7 +16,7 @@
         >
             <textarea v-model="value" class="textarea"/>
             <div class="data-table-field-container">
-                <button class="button--gray data-table-button"
+                <button class="button--border data-table-button"
                     @click="editing=false"
                 >
                     CANCEL
