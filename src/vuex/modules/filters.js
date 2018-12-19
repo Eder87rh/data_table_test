@@ -4,12 +4,10 @@ export const state = {
 }
 
 export const mutations = {
-    sortById:(state) => state.sortBy = 'id',
-    sortByName:(state) => state.sortBy = 'name',
-    sortByDescription:(state) => state.sortBy = 'description',
-    sortByDate:(state) => state.sortBy = 'date',
-    sortByAmount:(state) => state.sortBy = 'amount',
-    toggleSort:(state) => state.sortOrientation === 'asc' ? state.sortOrientation = 'desc' : state.sortOrientation = 'asc'
+    setSortBy:(state, title) => {
+        state.sortBy = title
+        state.sortOrientation === 'asc' ? state.sortOrientation = 'desc' : state.sortOrientation = 'asc'
+    }
 }
 
 export const actions = {
