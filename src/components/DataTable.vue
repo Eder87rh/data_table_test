@@ -1,9 +1,8 @@
 <template>
-    <div >
-        
+    <div>
         <table class="data-table">
             <tr>
-                <th>
+                <th @click="sortById">
                     <i v-if="sortBy === 'id' && orientation === 'desc'" 
                         class="material-icons md-light">
                         arrow_downward
@@ -14,8 +13,28 @@
                     </i>
                     ID
                 </th>
-                <th>Name</th>
-                <th>Description</th>
+                <th @click="sortByName">
+                    <i v-if="sortBy === 'name' && orientation === 'desc'" 
+                        class="material-icons md-light">
+                        arrow_downward
+                    </i>
+                    <i v-if="sortBy === 'name' && orientation === 'asc'"
+                        class="material-icons md-light">
+                        arrow_upward
+                    </i> 
+                    Name</th>
+                <th
+                    @click="sortByDescription"
+                >
+                    <i v-if="sortBy === 'description' && orientation === 'desc'" 
+                        class="material-icons md-light">
+                        arrow_downward
+                    </i>
+                    <i v-if="sortBy === 'description' && orientation === 'asc'"
+                        class="material-icons md-light">
+                        arrow_upward
+                    </i> 
+                    Description</th>
                 <th
                     @click="sortByDate"
                 >
@@ -29,7 +48,16 @@
                     </i> 
                     Date
                 </th>
-                <th>Amount</th>
+                <th @click="sortByAmount">
+                    <i v-if="sortBy === 'amount' && orientation === 'desc'" 
+                        class="material-icons md-light">
+                        arrow_downward
+                    </i>
+                    <i v-if="sortBy === 'amount' && orientation === 'asc'"
+                        class="material-icons md-light">
+                        arrow_upward
+                    </i>
+                    Amount</th>
             </tr>
             <tr v-for="payment in $store.getters.paymentsOrdered" :key="payment.id">
                 <td>{{ payment.id }}</td>
@@ -52,8 +80,24 @@ export default {
         }
     },
     methods:{
+        sortById(){
+            this.$store.commit('sortById')
+            this.$store.commit('toggleSort')
+        },
+        sortByName(){
+            this.$store.commit('sortByName')
+            this.$store.commit('toggleSort')
+        },
+        sortByDescription(){
+            this.$store.commit('sortByDescription')
+            this.$store.commit('toggleSort')
+        },
         sortByDate(){
             this.$store.commit('sortByDate')
+            this.$store.commit('toggleSort')
+        },
+        sortByAmount(){
+            this.$store.commit('sortByAmount')
             this.$store.commit('toggleSort')
         }
     },
