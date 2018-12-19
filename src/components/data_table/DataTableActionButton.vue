@@ -15,10 +15,6 @@ export default {
             required:true,
             type:String
         },
-        data:{
-            required:true,
-            type:Object,
-        },
         action:{
             required:true,
             type:Function,

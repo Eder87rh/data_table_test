@@ -13,7 +13,6 @@
                    <td>
                        <data-table-action-button 
                             title="save to firestore"
-                            :data="data"
                             :action="() => $store.dispatch('saveDataFirestore', data)"
                         />
                    </td>
