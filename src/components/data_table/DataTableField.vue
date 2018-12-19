@@ -15,11 +15,19 @@
             class="data-table-field-container-vertical"
         >
             <textarea v-model="value" class="textarea"/>
-            <button class="button"
-                @click="saveNewValue"
-            >
-                SAVE
-            </button>
+            <div class="data-table-field-container">
+                <button class="button--gray data-table-button"
+                    @click="editing=false"
+                >
+                    CANCEL
+                </button>
+                <button class="button data-table-button"
+                    @click="saveNewValue"
+                >
+                    SAVE
+                </button>
+                
+            </div>
         </div>
     </td>
 </template>
@@ -64,6 +72,9 @@ export default {
 <style lang="scss" scoped>
     .data-table-field-container{
         display:flex;
+    }
+    .data-table-button{
+        flex-basis: 50%;
     }
     .data-table-field-container-vertical{
         display:flex;

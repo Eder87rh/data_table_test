@@ -30,6 +30,13 @@
     padding:0;
 }
 
+.button--gray {
+    background:none;
+    border: 0.1rem solid darken($purple,10%);
+    color: $off-white;
+    padding:0;
+}
+
 @media(min-width: $desktop-breakpoint){
     .big-button{
         margin-bottom: $xl-size;
