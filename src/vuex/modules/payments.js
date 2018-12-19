@@ -1,5 +1,4 @@
-import firebase from '../../configFirebase'
-//import { firestore } from 'firebase';
+import paymentsAPI from '../../api/payments'
 
 export const state = {
     payments:[
@@ -711,21 +710,11 @@ export const mutations = {
 }
 
 export const actions = {
-  saveDataFirestore:({ commit }, payment) => {
+  saveDataFirestore: async ({ commit }, payment) => {
     console.log('saving')
-    firebase.db.collection("payments").doc(`${payment.id}`)
-    .set({
-      name: payment.name,
-      description: payment.description,
-      date: payment.date,
-      amount: payment.amount,
-    })
-    .then(function() {
-        console.log("Payment successfully written!");
-    })
-    .catch(function(error) {
-        console.error("Error writing payment: ", error);
-    });
+    let res = await paymentsAPI.insertPayment(payment)
+    console.log('res',res)
+    return res
   }
 }
 

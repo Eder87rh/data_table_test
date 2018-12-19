@@ -20,6 +20,6 @@ db.settings({
   timestampsInSnapshots: true
 });
 
-console.log('db',db)
+//console.log('db',db)
 
 export default { db }
