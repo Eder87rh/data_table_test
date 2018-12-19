@@ -712,7 +712,9 @@ export const actions = {
 }
 
 export const getters = {
-
+    dateTimeFormat:(state) => (dateTime) => {
+        return new Date(dateTime).toLocaleString('en-US', { timeZone: 'UTC' })
+    },
 }
 
 export default {

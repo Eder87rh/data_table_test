@@ -12,8 +12,8 @@
                 <td>{{ payment.id }}</td>
                 <td>{{ payment.name }}</td>
                 <td>{{ payment.description }}</td>
-                <td>{{ payment.date }}</td>
-                <td>{{ payment.amount }}</td>
+                <td>{{ $store.getters.dateTimeFormat(payment.date) }}</td>
+                <td>${{ payment.amount }}</td>
             </tr>
         </table>
     </div>
