@@ -1,3 +1,6 @@
+import firebase from '../../configFirebase'
+//import { firestore } from 'firebase';
+
 export const state = {
     payments:[
         {
@@ -708,7 +711,22 @@ export const mutations = {
 }
 
 export const actions = {
-
+  saveDataFirestore:({ commit }, payment) => {
+    console.log('saving')
+    firebase.db.collection("payments").doc(`${payment.id}`)
+    .set({
+      name: payment.name,
+      description: payment.description,
+      date: payment.date,
+      amount: payment.amount,
+    })
+    .then(function() {
+        console.log("Payment successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing payment: ", error);
+    });
+  }
 }
 
 export const getters = {

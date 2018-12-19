@@ -11,11 +11,10 @@
                    <data-table-field :data="data.date" :index="index"/>
                    <data-table-field :data="data.amount" :index="index"/>
                    <td>
-                       <!-- {{ data }} -->
                        <data-table-action-button 
                             title="save to firestore"
                             :data="data"
-                            :action="() =>{}"
+                            :action="() => $store.dispatch('saveDataFirestore', data)"
                         />
                    </td>
                </tr>

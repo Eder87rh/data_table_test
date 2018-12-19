@@ -1,6 +1,8 @@
 <template>
     <div>
-        <button class="button">
+        <button class="button" 
+            @click="action"
+        >
             {{ this.title.toUpperCase() }}
         </button>
     </div>
