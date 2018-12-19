@@ -8,7 +8,7 @@
                 <th>Date</th>
                 <th>Amount</th>
             </tr>
-            <tr v-for="payment in $store.state.payments" :key="payment.id">
+            <tr v-for="payment in $store.state.modPayments.payments" :key="payment.id">
                 <td>{{ payment.id }}</td>
                 <td>{{ payment.name }}</td>
                 <td>{{ payment.description }}</td>
