@@ -2,14 +2,7 @@
     <div>
         <table class="data-table">
             <slot name="header"/>
-
-            <tr v-for="data in allData" :key="data.id">
-                <td>{{ data.id }}</td>
-                <td>{{ data.name }}</td>
-                <td>{{ data.description }}</td>
-                <td>{{ $store.getters.dateTimeFormat(data.date) }}</td>
-                <td>${{ data.amount }}</td>
-            </tr>
+            <slot name="body"/>
         </table>
     </div>
 </template>
