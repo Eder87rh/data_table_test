@@ -1,5 +1,5 @@
 export const state = {
-    sortBy:'id',
+    sortBy:'date',
     sortOrientation:'desc'
 }
 
@@ -26,6 +26,14 @@ export const getters = {
                         return a.id > b.id ? 1 : -1
                     }
                 case 'date':
+                    let date1 = Date.parse(a.date)
+                    let date2 = Date.parse(b.date)
+
+                    if(state.sortOrientation === 'desc'){
+                        return date1 < date2 ? 1 : -1
+                    }else{
+                        return date1 > date2 ? 1 : -1
+                    }
                     break;
                 default:
                     break;
