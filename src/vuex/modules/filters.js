@@ -15,23 +15,24 @@ export const actions = {
 }
 
 export const getters = {
-    paymentsOrdered: (state,getters,rootState) => {
+    paymentsOrdered: ({sortBy, sortOrientation},getters,rootState) => {
         return rootState.modPayments.payments.sort((a,b) => {
-            //console.log(state.sortBy)
-            switch(state.sortBy){
+            /* console.log(state.sortBy)
+            console.log(state.sortOrientation) */
+            switch(sortBy){
                 case 'id':
-                    return returnOrderedValue(a.id, b.id)
+                    return returnOrderedValue(a.id, b.id, sortOrientation)
                 case 'name':
-                    return returnOrderedValue(a.name, b.name)
+                    return returnOrderedValue(a.name, b.name, sortOrientation)
                 case 'description':
-                    return returnOrderedValue(a.description, b.description)    
+                    return returnOrderedValue(a.description, b.description, sortOrientation)    
                 case 'date':
                     let date1 = Date.parse(a.date)
                     let date2 = Date.parse(b.date)
 
-                    return returnOrderedValue(date1, date2)
+                    return returnOrderedValue(date1, date2, sortOrientation)
                 case 'amount':
-                    return returnOrderedValue(a.amount, b.amount)
+                    return returnOrderedValue(a.amount, b.amount, sortOrientation)
                 default:
                     break;
             }
@@ -39,9 +40,9 @@ export const getters = {
     }
 }
 
-function returnOrderedValue(val1, val2){
+function returnOrderedValue(val1, val2, orientation){
     //console.log(state.sortOrientation)
-    if(state.sortOrientation === 'desc'){
+    if(orientation === 'desc'){
         return val1 < val2 ? 1 : -1
     }else{
         return val1 > val2 ? 1 : -1
