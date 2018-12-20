@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTableActionButton.vue match snapshot 1`] = `
+<div><button class="button">
+    SAVE TO FIRESTORE
+  </button></div>
+`;

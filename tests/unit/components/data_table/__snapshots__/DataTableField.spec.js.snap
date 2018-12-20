@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTableField.vue match snapshot editable field 1`] = `
+<td>
+  <div class="data-table-field-container">
+    <div>
+      Editable
+    </div> <i class="material-icons md-18 md-light editable-icon">
+      edit
+    </i>
+  </div>
+</td>
+`;
+
+exports[`DataTableField.vue match snapshot normal field 1`] = `
+<td>
+  <div class="data-table-field-container">
+    <div>
+      Test
+    </div>
+    <!---->
+  </div>
+</td>
+`;
