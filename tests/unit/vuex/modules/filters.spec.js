@@ -1,6 +1,6 @@
-import { mutations, actions, getters } from '@/vuex/modules/filters.js'
-//import rootState from '@/vuex/store'
-//console.log(rootState.state)
+import { mutations, getters } from '@/vuex/modules/filters.js'
+import { root } from 'postcss-selector-parser';
+
 
 
 const { setSortBy, toggleSortOrientation, setSortOrientationDesc, setSortOrientationAsc } = mutations
@@ -64,26 +64,102 @@ describe('filters.js mutations', () => {
 
 describe('filters.js getters',() => {
     it('paymentsOrdered order data by Id and DESC correctly', () => {
-        const stateIdDesc = {
+        const state = {
             sortBy:'id',
             sortOrientation:'desc'
         }
 
-
-        const result = paymentsOrdered(stateIdDesc, null,rootState)
-        console.log(result[0].id)
+        const result = paymentsOrdered(state, null,rootState)
         expect(result[0].id).toEqual('3471DA17-401F-9633-BF81-4CADA6FD5C79')
     })
 
     it('paymentsOrdered order data by Id and ASC correctly', () => {
-        const stateIdAsc = {
+        const state = {
             sortBy:'id',
             sortOrientation:'asc'
         }
 
-        const result = paymentsOrdered(stateIdAsc, null,rootState)
-        console.log(result[0].id) 
+        const result = paymentsOrdered(state, null,rootState)
         expect(result[0].id).toEqual('1471DA17-401F-9633-BF81-4CADA6FD5C79')
+    })
+
+    it('paymentsOrdered order data by DATE and DESC correctly',() => {
+        const state = {
+            sortBy:'date',
+            sortOrientation:'desc'
+        }
+
+        const result = paymentsOrdered(state, null, rootState)
+        expect(result[0].date).toEqual('2019-07-23T04:24:49-07:00')
+    })
+
+    it('paymentsOrdered order data by DATE and ASC correctly',() => {
+        const state = {
+            sortBy:'date',
+            sortOrientation:'asc'
+        }
+
+        const result = paymentsOrdered(state, null, rootState)
+        expect(result[0].date).toEqual('2017-07-23T04:24:49-07:00')
+    })
+
+    it('paymentsOrdered order data by NAME and DESC correctly',() => {
+        const state = {
+            sortBy:'name',
+            sortOrientation:'desc'
+        }
+
+        const result = paymentsOrdered(state, null, rootState)
+        expect(result[0].name).toEqual('CKyra Lester')
+    })
+
+    it('paymentsOrdered order data by NAME and ASC correctly',() => {
+        const state = {
+            sortBy:'name',
+            sortOrientation:'asc'
+        }
+
+        const result = paymentsOrdered(state, null, rootState)
+        expect(result[0].name).toEqual('AKyra Lester')
+    })
+
+    it('paymentsOrdered order data by DESCRIPTION and DESC correctly',() => {
+        const state = {
+            sortBy:'description',
+            sortOrientation:'desc'
+        }
+
+        const result = paymentsOrdered(state, null, rootState)
+        expect(result[0].description).toEqual('Curabitur dictum. Phasellus in')
+    })
+
+    it('paymentsOrdered order data by DESCRIPTION and ASC correctly',() => {
+        const state = {
+            sortBy:'description',
+            sortOrientation:'asc'
+        }
+
+        const result = paymentsOrdered(state, null, rootState)
+        expect(result[0].description).toEqual('ACurabitur dictum. Phasellus in')
+    })
+
+    it('paymentsOrdered order data by AMOUNT and DESC correctly',() => {
+        const state = {
+            sortBy:'amount',
+            sortOrientation:'desc'
+        }
+
+        const result = paymentsOrdered(state, null, rootState)
+        expect(result[0].amount).toEqual('345.54')
+    })
+    it('paymentsOrdered order data by AMOUNT and ASC correctly',() => {
+        const state = {
+            sortBy:'amount',
+            sortOrientation:'asc'
+        }
+
+        const result = paymentsOrdered(state, null, rootState)
+        expect(result[0].amount).toEqual('145.54')
     })
 
     

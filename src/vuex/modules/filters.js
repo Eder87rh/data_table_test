@@ -17,8 +17,6 @@ export const actions = {
 export const getters = {
     paymentsOrdered: ({sortBy, sortOrientation},getters,rootState) => {
         return rootState.modPayments.payments.sort((a,b) => {
-            /* console.log(state.sortBy)
-            console.log(state.sortOrientation) */
             switch(sortBy){
                 case 'id':
                     return returnOrderedValue(a.id, b.id, sortOrientation)
@@ -41,7 +39,6 @@ export const getters = {
 }
 
 function returnOrderedValue(val1, val2, orientation){
-    //console.log(state.sortOrientation)
     if(orientation === 'desc'){
         return val1 < val2 ? 1 : -1
     }else{
