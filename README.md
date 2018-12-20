@@ -1,34 +1,33 @@
-# data_table
+# Brite Core - data table 
 
-## Project setup
+## Deployment method
 ```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run serve
+I used github pages because for me is the best and easiest way to run in production a public project with BaaS
 ```
 
-### Compiles and minifies for production
+### How long did you spend on the test? Would you do anything differently if you had more time?
 ```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
+It took me around 15 hours or work, if I had more time, probably I would polish the components a litle bit more and I would improve the styles
 ```
 
-### Lints and fixes files
+### In what ways would you adapt your component so that it could be used in many different scenarios where a data table is required?
+
 ```
-yarn run lint
+I always trying to make the components reusable through named slots, this isn't the exception
 ```
 
-### Run your unit tests
+### What is your favorite CSS property? Why?
 ```
-yarn run test:unit
+Flexbox because it makes the elements positioning a breeze, besides I've read about CSS Grid and it sounds very interesting
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### What is your favorite modern Javascript feature? Why?
+```
+Async Await for promises, because I feel much easier work with them. Arrow functions is anothe feature I love to use
+```
+
+### What is your favorite third-party Vue.js library? Why?
+```
+vee-validate because the forms validation stop being a problem
+```
+

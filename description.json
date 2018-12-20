@@ -1,0 +1,25 @@
+{
+    "name": "Eder Ramírez Hernández",
+    "date_of_birth": "11/14/1987",
+    "nationality": "Mexican",
+    "phone": "+52 753 165 77 16",
+    "e-mail": "eder.ramirez87@gmail.com",
+    "marital_status": "Married",
+    "projects_portfolio": "https://eder87rh.github.io/portafolio/",
+    "linkedin_profile": "https://www.linkedin.com/in/ederdev/",
+    "current_job": "full-stack developer at APILAC",
+    "hobbies": [
+        "Learn about modern software developer tools",
+        "read articles in internet",
+        "watch movies",
+        "listen music",
+        "play chess"
+    ],
+    "goals": [
+        "Be a professional Vue.js Senior developer",
+        "work as developer in remote way",
+        "Teach others about development trough online articules",
+        "Buy a house for my family",
+        "In future be able to give quality private school to my children"
+    ]
+}
