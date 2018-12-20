@@ -1,7 +1,7 @@
 <template>
     <tr>
         <th v-for="(title, index) in titles" 
-            @click="$store.commit('setSortBy', title)"
+            @click="sort(title)"
             :key="index">
             <i v-if="sortBy === title && orientation === 'desc'" 
                 class="material-icons md-light">
@@ -28,6 +28,16 @@ export default {
     data(){
         return{
 
+        }
+    },
+    methods:{
+        sort(title){
+            if(this.sortBy === title){
+                this.$store.commit('toggleSortOrientation')
+            }else{
+                this.$store.commit('setSortBy', title)
+                this.$store.commit('setSortOrientationDesc')
+            }
         }
     },
      computed:{

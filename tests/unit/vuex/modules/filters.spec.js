@@ -86,7 +86,7 @@ describe('filters.js getters',() => {
         setSortOrientationAsc(state)
         console.log('STATE', state)
         const result = paymentsOrdered(state, null,rootState.state)
-        console.log(result[0].date)
+        console.log(result[50].date)
         //expect(result[0].date).toEqual('2019-10-28T04:57:29-07:00')
     })
 

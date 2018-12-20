@@ -4,10 +4,8 @@ export const state = {
 }
 
 export const mutations = {
-    setSortBy:(state, title) => {
-        state.sortBy = title
-        state.sortOrientation === 'asc' ? state.sortOrientation = 'desc' : state.sortOrientation = 'asc'
-    },
+    setSortBy:(state, title) => state.sortBy = title,
+    toggleSortOrientation:(state) => state.sortOrientation === 'asc' ? state.sortOrientation = 'desc' : state.sortOrientation = 'asc',
     setSortOrientationDesc:(state) => state.sortOrientation = 'desc',
     setSortOrientationAsc:(state) => state.sortOrientation = 'asc',
 }
