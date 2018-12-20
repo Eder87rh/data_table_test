@@ -7,7 +7,9 @@ export const mutations = {
     setSortBy:(state, title) => {
         state.sortBy = title
         state.sortOrientation === 'asc' ? state.sortOrientation = 'desc' : state.sortOrientation = 'asc'
-    }
+    },
+    setSortOrientationDesc:(state) => state.sortOrientation = 'desc',
+    setSortOrientationAsc:(state) => state.sortOrientation = 'asc',
 }
 
 export const actions = {
@@ -17,6 +19,7 @@ export const actions = {
 export const getters = {
     paymentsOrdered: (state,getters,rootState) => {
         return rootState.modPayments.payments.sort((a,b) => {
+            //console.log(state.sortBy)
             switch(state.sortBy){
                 case 'id':
                     return returnOrderedValue(a.id, b.id)
@@ -39,7 +42,7 @@ export const getters = {
 }
 
 function returnOrderedValue(val1, val2){
-    console.log(state.sortOrientation)
+    //console.log(state.sortOrientation)
     if(state.sortOrientation === 'desc'){
         return val1 < val2 ? 1 : -1
     }else{
