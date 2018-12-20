@@ -1,5 +1,6 @@
 module.exports = {
-   css: {
+    baseUrl: '/data_table_test/',
+    css: {
         loaderOptions: {
             sass: {
                 data: `
