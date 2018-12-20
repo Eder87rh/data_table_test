@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTableHeader.vue match snapshot with titles 1`] = `
+<tr>
+  <th>
+    <!---->
+    <!---->
+    ID
+  </th>
+  <th>
+    <!---->
+    <!---->
+    NAME
+  </th>
+  <th>
+    <!---->
+    <!---->
+    DESCRIPTION
+  </th>
+  <th><i class="material-icons md-light">
+      arrow_downward
+    </i>
+    <!---->
+    DATE
+  </th>
+  <th>
+    <!---->
+    <!---->
+    AMOUNT
+  </th>
+  <th>
+    <!---->
+    <!---->
+    ACTIONS
+  </th>
+</tr>
+`;
