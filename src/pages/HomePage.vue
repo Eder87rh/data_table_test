@@ -35,6 +35,9 @@ export default {
             titles:['id', 'name', 'description', 'date', 'amount', 'actions'],
         }
     },
+    mounted(){
+        this.$store.dispatch('getPayments')
+    },
     components:{
         headerComponent,
         dataTable,

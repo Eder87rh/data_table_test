@@ -1,4 +1,5 @@
 import paymentsAPI from '../../api/payments'
+import Noty from 'noty';
 
 export const state = {
     payments:[
@@ -707,6 +708,7 @@ export const state = {
 
 export const mutations = {
   updateDescription: ({payments}, {index, description}) => payments[index].description = description,
+  setPayments:(state, payments) => state.payments = payments,
 }
 
 export const actions = {
@@ -714,6 +716,19 @@ export const actions = {
     console.log('saving')
     let res = await paymentsAPI.insertPayment(payment)
     console.log('res',res)
+
+    new Noty({
+      type: 'info',
+      text: 'Changes saved successfully',
+      timeout:3000,
+    }).show();
+
+    return res
+  },
+  getPayments: async({ commit }, payment) => {
+    let res = await paymentsAPI.getPaymentsFromFirestore()
+    console.log({ res })
+    commit('setPayments', res)
     return res
   }
 }

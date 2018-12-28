@@ -6,7 +6,7 @@
             </div>
             <i v-if="this.editable"
                 class="material-icons md-18 md-light editable-icon"
-                @click="editing = !editing"
+                @click="setEditMode"
             >
                 edit
             </i>
@@ -64,6 +64,10 @@ export default {
                 description: this.value
             })
             this.editing = false
+        },
+        setEditMode(){
+            this.editing = true
+            this.value= this.data
         }
     }
 }

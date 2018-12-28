@@ -15,5 +15,18 @@ export default {
         .catch(function(error) {
             return `Error writing payment: ${error}`;
         });
+    },
+    getPaymentsFromFirestore(){
+        return firebase.db.collection("payments")
+            .get()
+            .then((querySnapshot) =>{
+                return querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+            })
+            .catch((error) => {
+                return `Error getting documents: ${error}`
+            })
     }
 }

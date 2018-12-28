@@ -10,6 +10,9 @@ module.exports = {
                     @import "@/styles/components/_header.scss";
                     @import "@/styles/components/_button.scss";
                     @import "@/styles/components/_data_table.scss";
+
+                    @import "~noty/src/noty.scss";
+                    @import "~noty/src/themes/mint.scss";
                 `
             }
         }
