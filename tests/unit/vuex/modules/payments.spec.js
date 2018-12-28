@@ -1,7 +1,7 @@
 import { mutations, actions, getters } from '@/vuex/modules/payments.js'
 
-const { updateDescription } = mutations
-let { saveDataFirestore } = actions
+const { updateDescription, setPayments } = mutations
+let { saveDataFirestore, getPaymentsFromFirestore } = actions
 const { dateTimeFormat } = getters
 
 const state = {
@@ -21,6 +21,11 @@ describe('payments.js mutations', () => {
         updateDescription(state, {index:0, description:'new description'})
         expect(state.payments[0].description).toBe('new description')
     })
+    it('setPayments works fine', () => {
+        let localState = {}
+        setPayments(localState,state.payments)
+        expect(localState.payments.length).toEqual(1)
+    })
 })
 
 describe('payments actions',() => {
@@ -28,6 +33,15 @@ describe('payments actions',() => {
         saveDataFirestore = jest.fn().mockReturnValue(new Promise(res => res({ data: 'Mock with Jest' })))
         let data = await saveDataFirestore(state.payments[0])
         expect(data).toEqual({ data: 'Mock with Jest' })
+    })
+    it('getPayments from firestore', async () => {
+        getPaymentsFromFirestore = jest.fn().mockReturnValue(
+            new Promise(res => res(state.payments))
+        )
+
+        let data = await getPaymentsFromFirestore()
+        expect(data.length).toEqual(1)
+
     })
 })
 

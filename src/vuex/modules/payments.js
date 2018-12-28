@@ -713,9 +713,7 @@ export const mutations = {
 
 export const actions = {
   saveDataFirestore: async ({ commit }, payment) => {
-    console.log('saving')
     let res = await paymentsAPI.insertPayment(payment)
-    console.log('res',res)
 
     new Noty({
       type: 'info',
@@ -727,7 +725,6 @@ export const actions = {
   },
   getPayments: async({ commit }, payment) => {
     let res = await paymentsAPI.getPaymentsFromFirestore()
-    console.log({ res })
     commit('setPayments', res)
     return res
   }
